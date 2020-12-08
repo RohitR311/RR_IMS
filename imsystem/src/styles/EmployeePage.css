@@ -1,0 +1,209 @@
+body {
+  overflow: hidden;
+}
+
+.employee {
+  min-height: 760px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.employee > h2 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+
+  background: -webkit-linear-gradient(
+    20deg,
+    rgb(107, 80, 226),
+    rgb(174, 47, 233)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.employee > p {
+  margin-top: 5px;
+  font-size: 1.2rem;
+  margin-bottom: 50px;
+  background: -webkit-linear-gradient(
+    20deg,
+    rgb(107, 80, 226),
+    rgb(174, 47, 233)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.employee-img {
+  display: flex;
+  /* flex-direction: row; */
+  width: 70%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.employee-img a img {
+  position: relative;
+  height: 200px;
+  width: 400px;
+  margin: 35px 0 0 0;
+  border: 0.1px solid blueviolet;
+  transition: 0.4s;
+  background-color: rgba(255, 255, 255);
+}
+
+.employee-img .employee-imgs a img:hover {
+  filter: hue-rotate(35deg);
+  transform: scale(1.1);
+  border: none;
+  box-shadow: 5px 5px 30px blueviolet;
+  cursor: pointer;
+}
+
+.employee-img .employee-imgs a:hover + .des {
+  filter: hue-rotate(35deg);
+  transform: scale(1.1);
+}
+
+.employee-imgs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* margin: 0 4%; */
+}
+
+.des {
+  position: relative;
+  width: 400px;
+  height: 10px;
+  /* opacity: 0; */
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 8px 0 0 0;
+  padding-bottom: 40px;
+  letter-spacing: 1.4px;
+  background-color: blueviolet;
+  transition: 0.4s;
+  transform: translateY(-100%);
+  color: white;
+}
+
+.employees {
+  margin-top: 0px !important;
+}
+
+@media screen and (max-width: 1200px) {
+  body {
+    overflow: scroll;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .employee-img a img {
+    margin-left: 7px;
+  }
+
+  .employee {
+    width: 100vw;
+    margin-left: -25px;
+    background-position: center;
+  }
+
+  .des {
+    margin-left: 7px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .employee {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .employee-img a img {
+    margin-right: 12px;
+  }
+
+  .employee-img p {
+    margin-right: 12px;
+  }
+}
+
+/* User CSS */
+
+.employee .sidebar {
+  position: relative;
+}
+
+.employee .sidebar .bg_shadow {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease;
+}
+
+.employee .sidebar__inner {
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient( rgba(76, 148, 243, 0.6), rgba(14, 187, 92, 0.9) );
+  z-index: 999;
+  transition: all 0.3s ease;
+  left: -100%;
+}
+
+.employee.active .sidebar__inner {
+  left: 0;
+}
+.employee.active .sidebar .bg_shadow {
+  visibility: visible;
+  opacity: 0.7;
+}
+
+.employee .sidebar__inner .profile_info {
+  padding: 30px 50px;
+  text-align: center;
+}
+
+.employee .sidebar__inner .profile_info .profile_img {
+  width: 125px;
+  margin: 0 auto 15px;
+}
+
+.employee .sidebar__inner .profile_info .profile_img img {
+  width: 100%;
+  display: block;
+}
+
+.employee .sidebar__inner .profile_info .profile_data .name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.employee .sidebar__inner .profile_info .profile_data .role {
+  font-weight: 300;
+  color: #88a3d0;
+  margin-bottom: 15px;
+}
+
+.employee .close .fas:hover {
+  cursor: pointer;
+}
+
+
