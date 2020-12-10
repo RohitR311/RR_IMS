@@ -242,6 +242,8 @@ $color_grey_dark: #a2a2a2;
     
   }
 
+  
+
   @media (max-width: 640px) {
     .description {
       min-height: auto;
@@ -283,5 +285,11 @@ $color_grey_dark: #a2a2a2;
         padding-left: 25px;
       }
     }
+  }
+}
+
+@media (max-width: 550px) {
+  .team-members {
+    margin-left: -40px;
   }
 }

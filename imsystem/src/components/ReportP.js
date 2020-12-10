@@ -71,7 +71,7 @@ const ReportP = () => {
       }}
     >
       <h2
-        style={{ borderBottom: "2px solid blueviolet" }}
+        style={{ borderBottom: "2px solid blueviolet",textAlign: "center" }}
         data-aos="fade-down"
         data-aos-duration="800"
       >
@@ -94,7 +94,7 @@ const ReportP = () => {
           projectArray.map((project) => (
             <>
               <Card
-                className="bg-light text-white  text-center"
+                className="bg-light text-white text-center responsive"
                 style={{
                   //     display: "flex",
                   //     flexDirection: "row",

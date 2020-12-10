@@ -111,3 +111,37 @@ h1 {
     margin-right: 8px;
   }
 }
+
+@media screen and (max-width: 925px) {
+  .card-projects {
+    width: 750px !important;
+    /* height: 100px; */
+  }
+}
+
+@media screen and (max-width: 785px) {
+  .card-projects {
+    width: 600px !important;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  .card-projects {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 360px !important;
+    height: 350px !important;
+  }
+  .projects {
+    border-right: none !important;
+    border-bottom: darkgreen !important;
+    margin-bottom: 20px !important;
+  }
+}
+
+
+@media screen and (max-width: 550px) {
+  .assigned-project {
+    margin-left: -40px;
+  }
+}

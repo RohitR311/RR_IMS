@@ -216,7 +216,7 @@ const SATeamReport = () => {
           ))}
         {!teamReport.length && (
           <h1
-            style={{ borderBottom: "2px solid blueviolet" }}
+            style={{ borderBottom: "2px solid blueviolet",textAlign: "center" }}
             data-aos="zoom-in"
             data-aos-duration="800"
           >

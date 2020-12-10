@@ -101,4 +101,32 @@ body {
       margin-right: 8px;
     }
   }
+
+  @media screen and (max-width: 925px) {
+    .responsive {
+      width: 750px !important;
+      /* height: 100px; */
+    }
+  }
+
+  @media screen and (max-width: 785px) {
+    .responsive {
+      width: 600px !important;
+    }
+  }
+
+  @media screen and (max-width: 625px) {
+    .responsive {
+      width: 500px !important;
+    }
+  }
+
+  @media screen and (max-width: 550px) {
+    .project-report {
+      margin-left: -40px;
+    }
+    .responsive {
+      width: 450px !important;
+    }
+  }
   
