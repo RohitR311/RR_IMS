@@ -159,6 +159,27 @@ body {
   color: #5ad67d;
 }
 
+@media screen and (max-width: 768px) {
+  .course {
+    display: flex !important;
+    flex-direction: column;
+    width: 280px;
+  }
+
+  .progress-container {
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  .tick {
+   position: relative;
+   /* top: 10%; */
+   right: -80%;
+   top: -25%;
+   margin-bottom: -50px;
+  }
+}
+
 @media screen and (max-width: 550px) {
   .team-report {
     margin-left: -40px;

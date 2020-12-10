@@ -188,7 +188,7 @@ const SATeamReport = () => {
                     <h6>Stage</h6>
                     <h2>{report.stage}</h2>
                     <button
-                      className="btn"
+                      className="btn tick"
                       onClick={() => deleteReport(report.project_name)}
                     >
                       &#x2713;

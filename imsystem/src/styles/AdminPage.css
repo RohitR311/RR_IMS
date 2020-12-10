@@ -146,7 +146,7 @@ body {
 }
 
 .admin .sidebar__inner {
-  width: 250px;
+  width: 270px;
   position: fixed;
   top: 0;
   left: 0;
@@ -192,7 +192,12 @@ body {
   margin-bottom: 15px;
 }
 
+.admin .close .fas{
+  transition: 0.4s;
+}
+
 .admin .close .fas:hover {
   cursor: pointer;
+  color: blueviolet !important;
 }
 
