@@ -89,7 +89,7 @@ const TeamM = () => {
                     style={{ backgroundImage: "url(" + team.image + ")" }}
                   ></div>
                   <ul className="details">
-                    {/* <li className="author">
+                    {/* `<li className="author">
                       <a href="#">Contact No.</a>
                     </li>
                     <li className="date">Aug. 24, 2015</li>
@@ -108,7 +108,7 @@ const TeamM = () => {
                           <a href="#">CSS</a>
                         </li>
                       </ul>
-                    </li> */}
+                    </li>` */}
                   </ul>
                 </div>
                 <div className="description">
