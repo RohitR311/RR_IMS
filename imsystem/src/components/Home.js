@@ -8,9 +8,11 @@ import { useHistory } from "react-router-dom";
 import $ from "jquery";
 import Script from "../js/script";
 
+
 function Home() {
   Script($);
 
+  // const [{ user }, dispatch] = useStateValue();
   const history = useHistory();
   const [name, setName] = useState("");
   const [pass, setPass] = useState("");
@@ -20,6 +22,14 @@ function Home() {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+
+    // dispatch({
+    //   type: "SET_USER",
+    //   user: name,
+    // });
+
+    localStorage.setItem('user', name);
+
     const res = await axios.get(
       `http://localhost/IMS/API/Employee_fetch.php?name=${name}&password=${pass}`
     );
@@ -28,9 +38,7 @@ function Home() {
     // setImage(res.data[0]?.image);
     // console.log(id);
     // console.log(res);
-    
   };
-
 
   useEffect(() => {
     if (status == "Super-Admin") history.push("/superadmin");

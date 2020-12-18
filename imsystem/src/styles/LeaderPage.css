@@ -55,6 +55,7 @@ body {
   margin: 35px 0 0 0;
   border: 0.1px solid blueviolet;
   transition: 0.4s;
+  border-radius: 5px;
   background-color: rgba(255, 255, 255);
 }
 
@@ -83,6 +84,7 @@ body {
   position: relative;
   width: 400px;
   height: 10px;
+  border-radius: 0 0 5px 5px;
   /* opacity: 0; */
   font-size: 1.5rem;
   text-align: center;
@@ -161,7 +163,7 @@ body {
   top: 0;
   left: 0;
   height: 100%;
-  background: linear-gradient( rgba(76, 148, 243, 0.6), rgba(14, 187, 92, 0.9) );
+  background: linear-gradient( #0cbaba, #0e9fa4 );
   z-index: 999;
   transition: all 0.3s ease;
   left: -100%;
@@ -188,21 +190,55 @@ body {
 .leader .sidebar__inner .profile_info .profile_img img {
   width: 100%;
   display: block;
+  border-radius: 50%;
 }
 
 .leader .sidebar__inner .profile_info .profile_data .name {
   font-size: 22px;
   font-weight: 700;
+  text-decoration: underline;
   color: #fff;
 }
 
 .leader .sidebar__inner .profile_info .profile_data .role {
   font-weight: 300;
-  color: #88a3d0;
-  margin-bottom: 15px;
+  color: blueviolet;
+  margin-bottom: 35px;
 }
 
-.admin .close .fas{
+/* .leader .sidebar__inner .profile_info .profile_data .skills {
+  font-weight: 300;
+  text-decoration: underline;
+  color: blueviolet;
+}
+
+.leader .sidebar__inner .profile_info .profile_data .user-skills {
+  font-weight: 300;
+  color: #92285d;
+  margin-bottom: 25px;
+}
+
+.leader .sidebar__inner .profile_info .profile_data .user-team {
+  font-weight: 300;
+  color: #92285d;
+  margin-bottom: 25px;
+} */
+
+.leader .sidebar__inner .profile_info .profile_data .other-details {
+  font-weight: 300;
+  /* text-decoration: underline; */
+  color: blueviolet;
+  margin-top: 35px;
+}
+
+.leader .sidebar__inner .profile_info .profile_data .user-name,.user-id {
+  font-weight: 300;
+  color: #FFE5B4;
+  font-size: 20px !important;
+  /* margin-bottom: 20px; */
+}
+
+.leader .close .fas{
   transition: 0.4s;
 }
 

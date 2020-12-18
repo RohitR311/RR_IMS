@@ -4,12 +4,24 @@ import "../styles/EmployeePage.css";
 import axios from "axios";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import PasswordUpdate from "./PasswordUpdate";
 import { useHistory } from "react-router-dom";
 
 const EmployeePage = () => {
+  const user = localStorage.getItem("user");
   const { team } = useParams();
   const [teamImage, setTeamImage] = useState("");
   const history = useHistory();
+  const [isOpen, setIsOpen] = useState(false);
+  const [imsuser, setImsUser] = useState("");
+
+  const fetchUser = async () => {
+    const response = await axios.get(
+      `http://localhost/IMS/API/User_Fetch.php?username=${user}`
+    );
+
+    setImsUser(response.data[0]);
+  };
 
   const openSideBar = () => {
     document.querySelector(".employee").classList.add("active");
@@ -19,8 +31,17 @@ const EmployeePage = () => {
     document.querySelector(".employee").classList.remove("active");
   };
 
+  const showModal = () => {
+    setIsOpen(true);
+  };
+
+  const hideModal = () => {
+    setIsOpen(false);
+  };
+
   const directToHome = () => {
     history.push("/");
+    localStorage.clear();
   };
 
   const fetchTeam = async () => {
@@ -34,6 +55,7 @@ const EmployeePage = () => {
   console.log(teamImage);
 
   useEffect(() => {
+    fetchUser();
     fetchTeam();
     Aos.init({ duration: 2000 });
   }, []);
@@ -48,26 +70,36 @@ const EmployeePage = () => {
         backgroundSize: "cover",
       }}
     >
+      <PasswordUpdate checkOpen={isOpen} hideModal={hideModal} />
       <div className="sidebar">
         <div className="bg_shadow"></div>
         <div className="sidebar__inner">
           <div className="close">
-            <i className="fas fa-times" style={{color: "white"}} onClick={closeSideBar}></i>
+            <i
+              className="fas fa-times"
+              style={{ color: "white" }}
+              onClick={closeSideBar}
+            ></i>
           </div>
           <div className="profile_info">
             <div className="profile_img">
-              <img src="https://i.imgur.com/A1Fjq0d.png" alt="profile_img" />
+              <img src={imsuser.image} alt="profile_img" />
             </div>
             <div className="profile_data">
-              <p className="name">Alex John</p>
-              <p className="role">UI Developer</p>
+              <h3 className="name">{imsuser.name}</h3>
+              <h4 className="role">{imsuser.status}</h4>
+
+              <h4 className="other-details">User-Name:</h4>
+              <p className="user-name">{imsuser.username}</p>
+              <h4 className="other-details">User-ID:</h4>
+              <p className="user-id">{imsuser.userid}</p>
               <button
                 className="submit profile"
                 type="submit"
                 align="center"
                 data-aos="fade-right"
                 data-aos-duration="800"
-                // onClick={directToHome}
+                onClick={showModal}
               >
                 Update Profile
               </button>

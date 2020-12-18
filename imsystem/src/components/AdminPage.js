@@ -1,12 +1,48 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/AdminPage.css";
 import { Link } from "react-router-dom";
 import $ from "jquery";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
+import PasswordUpdate from "./PasswordUpdate";
 
 function AdminPage() {
+  const user = localStorage.getItem("user");
+  const history = useHistory();
+  const [teamImage, setTeamImage] = useState("");
+  const [imsuser, setImsUser] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  const userTeam = imsuser.team;
+
+  const fetchUser = async () => {
+    const response = await axios.get(
+      `http://localhost/IMS/API/User_Fetch.php?username=${user}`
+    );
+
+    setImsUser(response.data[0]);
+
+    // fetchUserTeam();
+
+    // const res = await axios.get(
+    //   `http://localhost/IMS/API/TeamName_fetch.php?Team_name=${imsuser.team}`
+    // );
+
+    // setTeamImage(res.data[0]?.Team_image);
+  };
+
+  const fetchUserTeam = async () => {
+    const response = await axios.get(
+      `http://localhost/IMS/API/TeamName_fetch.php?Team_name=${userTeam}`
+    );
+
+    setTeamImage(response.data[0]?.Team_image);
+    // console.log(response.data[0].Team_image);
+  };
+
+  console.log(imsuser);
+  console.log(teamImage);
 
   const openSideBar = () => {
     document.querySelector(".admin").classList.add("active");
@@ -16,37 +52,67 @@ function AdminPage() {
     document.querySelector(".admin").classList.remove("active");
   };
 
-  const history = useHistory();
+  const showModal = () => {
+    setIsOpen(true);
+  };
+
+  const hideModal = () => {
+    setIsOpen(false);
+  };
+
+  // console.log(teamImage);
+
+  // const [{ user }] = useStateValue();
+  // console.log(localStorage.getItem("user"));
 
   const directToHome = () => {
     history.push("/");
+    localStorage.clear();
   };
+
   useEffect(() => {
+    fetchUser();
+    // fetchUserTeam();
     Aos.init({ duration: 2000 });
   }, []);
 
+  useEffect(() => {
+    fetchUserTeam();
+    Aos.init({ duration: 2000 });
+  }, [imsuser]);
+
   return (
     <div className="admin" style={{ marginTop: "55px" }}>
+      <PasswordUpdate checkOpen={isOpen} hideModal={hideModal} />
       <div className="sidebar">
         <div className="bg_shadow"></div>
         <div className="sidebar__inner">
           <div className="close">
-            <i className="fas fa-times" style={{color: "white"}} onClick={closeSideBar}></i>
+            <i
+              className="fas fa-times"
+              style={{ color: "white" }}
+              onClick={closeSideBar}
+            ></i>
           </div>
           <div className="profile_info">
             <div className="profile_img">
-              <img src="https://i.imgur.com/A1Fjq0d.png" alt="profile_img" />
+              <img src={imsuser.image} alt="profile_img" />
             </div>
             <div className="profile_data">
-              <p className="name">Alex John</p>
-              <p className="role">UI Developer</p>
+              <h3 className="name">{imsuser.name}</h3>
+              <h4 className="role">{imsuser.status}</h4>
+
+              <h4 className="other-details">User-Name:</h4>
+              <p className="user-name">{imsuser.username}</p>
+              <h4 className="other-details">User-ID:</h4>
+              <p className="user-id">{imsuser.userid}</p>
               <button
                 className="submit profile"
                 type="submit"
                 align="center"
                 data-aos="fade-right"
                 data-aos-duration="800"
-                // onClick={directToHome}
+                onClick={showModal}
               >
                 Update Profile
               </button>
@@ -107,7 +173,7 @@ function AdminPage() {
         <i className="fas fa-user-edit" style={{ color: "white" }}></i>
       </button>
       <h2
-        style={{ borderBottom: "2px solid blueviolet",textAlign: "center" }}
+        style={{ borderBottom: "2px solid blueviolet", textAlign: "center" }}
         data-aos="fade-down"
         data-aos-duration="800"
       >
@@ -146,7 +212,7 @@ function AdminPage() {
           <Link to="/superadmin/addMember" className="hover">
             <img src="/images/Member.svg" alt="" className="admins" />
           </Link>
-          <p className="des">Add Member</p>
+          <p className="des">Edit Member</p>
         </div>
 
         <div className="admin-imgs" data-aos="zoom-in" data-aos-duration="1400">

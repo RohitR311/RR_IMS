@@ -74,7 +74,7 @@ function Member() {
       
       <form className="row login_form" onSubmit={handleFormSubmit}>
         <div id="login-page" className="container open">
-          <h1 style={{ marginBottom: "-10px" }}>Add Member</h1>
+          <h1 style={{ marginBottom: "-10px" }}>Edit Member</h1>
           <div className="form-set">
             <div className="form-group">
               <select
@@ -114,7 +114,7 @@ function Member() {
               </select>
             </div>
             <button className="submit" type="submit" align="center">
-              Add Member
+              Edit Member
             </button>
           </div>
         </div>

@@ -20,7 +20,6 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          
           <Route path="/" exact>
             <Home />
           </Route>
@@ -71,11 +70,10 @@ function App() {
           <Route path="/admin/:team/teamMembers" exact>
             <TeamM />
           </Route>
-          
+
           <Route path="/admin/:team/viewReport" exact>
             <TeamReport />
           </Route>
-
         </Switch>
       </Router>
     </div>
