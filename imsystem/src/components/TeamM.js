@@ -81,7 +81,7 @@ const TeamM = () => {
               <div
                 className={`blog-card ${alt} ? ${setAlt()} : ""`}
                 data-aos={`${alt ? "fade-left" : "fade-right"}`}
-                data-aos-duration={(index += 400)}
+                data-aos-duration={(index > 400) ? 800 : (index += 200)}
               >
                 <div className="meta">
                   <div

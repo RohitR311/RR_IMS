@@ -29,7 +29,14 @@ body {
 .dropdowns {
   width: 60%;
   margin: 20px auto;
+  
 }
+
+.dropdowns textarea::placeholder {
+  color: #495057;
+}
+
+
 
 .team-report > p {
   margin-top: 5px;
@@ -54,6 +61,19 @@ body {
   overflow: hidden;
   width: 700px;
   min-height: 225px;
+}
+
+.update-desc {
+  margin-top: 50px;
+  color: black;
+}
+
+#update-des {
+  margin-top: 40px;
+}
+
+.para {
+  color: black;
 }
 
 .course .course-preview h6 {
@@ -130,8 +150,6 @@ body {
 }
 .Complete::after {
 }
-.Deployed::after {
-}
 
 .progress-text {
   font-size: 10px;
@@ -149,10 +167,11 @@ body {
   font-weight: 500;
   padding: 12px 18px;
   position: absolute;
-  bottom: 30px;
+  bottom: 10px;
   right: 30px;
   letter-spacing: 1px;
   transition: 0.2s;
+  /* margin-top: 500px !important; */
 }
 
 .btn:hover {

@@ -84,7 +84,7 @@ const AssignedP = () => {
                 }}
                 key={project.Project_id}
                 data-aos="zoom-in"
-                data-aos-duration={(index += 400)}
+                data-aos-duration={(index > 400) ? 800 : (index += 200)}
               >
                 <Card.Img
                   src={project.Project_image}

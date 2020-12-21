@@ -13,6 +13,7 @@ const ReportP = () => {
   const [stage, setStage] = useState();
   const [statusStage, setStatusStage] = useState();
   const [teamImage, setTeamImage] = useState("");
+  const [stageDescription, setStageDescription] = useState("");
 
   //   const [projectName, setProjectName] = useState();
   const history = useHistory();
@@ -44,6 +45,7 @@ const ReportP = () => {
         project_stage: stage,
         stage_status: statusStage,
         update_date: Date.now(),
+        update_description: stageDescription,
       }
     );
 
@@ -71,7 +73,7 @@ const ReportP = () => {
       }}
     >
       <h2
-        style={{ borderBottom: "2px solid blueviolet",textAlign: "center" }}
+        style={{ borderBottom: "2px solid blueviolet", textAlign: "center" }}
         data-aos="fade-down"
         data-aos-duration="800"
       >
@@ -103,14 +105,14 @@ const ReportP = () => {
                 }}
                 key={project.Project_id}
                 data-aos="zoom-in"
-                data-aos-duration={(index += 400)}
+                data-aos-duration={index > 400 ? 800 : (index += 200)}
               >
                 <Card.Header style={{ borderBottom: "1px solid grey" }}>
                   Assigned {format(project.Assign_date)}
                 </Card.Header>
                 <Card.Body>
                   <Card.Title>{project.Project_name}</Card.Title>
-                  <div className="form-group" className="dropdowns">
+                  <div className="form-group dropdowns">
                     <select
                       className="browser-default custom-select"
                       onChange={(e) => setStage(e.currentTarget.value)}
@@ -127,7 +129,7 @@ const ReportP = () => {
                     </select>
                   </div>
 
-                  <div className="form-group" className="dropdowns">
+                  <div className="form-group dropdowns">
                     <select
                       className="browser-default custom-select"
                       onChange={(e) => setStatusStage(e.currentTarget.value)}
@@ -138,8 +140,18 @@ const ReportP = () => {
                       <option value="In progress">In progress</option>
                       <option value="On hold">On hold</option>
                       <option value="Complete">Complete</option>
-                      <option value="Deployed">Deployed</option>
+                      {/* <option value="Deployed">Deployed</option> */}
                     </select>
+                  </div>
+                  <div className="form-group dropdowns">
+                    {/* <label for="exampleFormControlTextarea2">Stage Update Description</label> */}
+                    <textarea
+                      className="form-control rounded-0"
+                      id="exampleFormControlTextarea2"
+                      rows="3"
+                      onChange={(e) => setStageDescription(e.target.value)}
+                      placeholder="Stage Update Description"
+                    ></textarea>
                   </div>
                   <button
                     onClick={() => {

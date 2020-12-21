@@ -20,7 +20,7 @@ function PasswordUpdate(props) {
 
     console.log(res);
     if (res.data.status == false) {
-      alert("Something went wrong!")
+      alert("Wrong Old Password Entered!");
     } else {
       const response = await axios.post(
         `http://localhost/IMS/API/Password_update.php`,
@@ -30,7 +30,7 @@ function PasswordUpdate(props) {
         }
       );
       props.hideModal(false);
-      alert("Password Updated Successfully!")
+      alert("Password Updated Successfully!");
     }
   };
 

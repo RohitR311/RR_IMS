@@ -89,10 +89,10 @@ const EmployeePage = () => {
               <h3 className="name">{imsuser.name}</h3>
               <h4 className="role">{imsuser.status}</h4>
 
-              <h4 className="other-details">User-Name:</h4>
-              <p className="user-name">{imsuser.username}</p>
-              <h4 className="other-details">User-ID:</h4>
-              <p className="user-id">{imsuser.userid}</p>
+              <p className="other-details">User-Name:</p>
+              <h4 className="user-name">{imsuser.username}</h4>
+              <p className="other-details">Employee ID:</p>
+              <h4 className="user-id">{imsuser.employeeid}</h4>
               <button
                 className="submit profile"
                 type="submit"

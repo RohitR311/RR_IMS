@@ -53,22 +53,24 @@ const SATeamReport = () => {
   };
 
   const deleteReport = async (project) => {
-    const resonse = await axios.post(
-      `http://localhost/IMS/API/Project_insert_completed.php`,
-      {
-        project_name: project,
-        project_team: team,
-        completion_date: new Date().toJSON().slice(0, 10).replace(/-/g, "/"),
-      }
-    );
+    if (window.confirm("Are You Sure?")) {
+      const response = await axios.post(
+        `http://localhost/IMS/API/Project_insert_completed.php`,
+        {
+          project_name: project,
+          project_team: team,
+          completion_date: new Date().toJSON().slice(0, 10).replace(/-/g, "/"),
+        }
+      );
 
-    const res = await axios.delete(
-      `http://localhost/IMS/API/Project_report_delete.php?project_name=${project}`
-    );
+      const res = await axios.delete(
+        `http://localhost/IMS/API/Project_report_delete.php?project_name=${project}`
+      );
 
-    fetchReport();
+      fetchReport();
 
-    console.log(res.data);
+      console.log(res.data);
+    }
   };
 
   const progressBarElement = document.querySelectorAll(".progress");
@@ -80,16 +82,13 @@ const SATeamReport = () => {
       if (progressBarElement[i].classList.contains("Notstarted")) {
         getRuleWithSelector(".Notstarted::after").style.width = "0";
       } else if (progressBarElement[i].classList.contains("Initiated")) {
-        getRuleWithSelector(".Initiated::after").style.width = "calc(100% / 6)";
+        getRuleWithSelector(".Initiated::after").style.width = "25%";
       } else if (progressBarElement[i].classList.contains("Inprogress")) {
-        getRuleWithSelector(".Inprogress::after").style.width =
-          "calc(100% / 3)";
+        getRuleWithSelector(".Inprogress::after").style.width = "50%";
       } else if (progressBarElement[i].classList.contains("Onhold")) {
-        getRuleWithSelector(".Onhold::after").style.width = "50%";
+        getRuleWithSelector(".Onhold::after").style.width = "75%";
       } else if (progressBarElement[i].classList.contains("Complete")) {
-        getRuleWithSelector(".Complete::after").style.width = "calc(200% / 3)";
-      } else {
-        getRuleWithSelector(".Deployed::after").style.width = "100%";
+        getRuleWithSelector(".Complete::after").style.width = "100%";
       }
     }
   };
@@ -155,13 +154,13 @@ const SATeamReport = () => {
               <div
                 className="courses-container"
                 data-aos="fade-right"
-                data-aos-duration={(index += 400)}
+                data-aos-duration={index > 400 ? 800 : (index += 200)}
               >
                 <div className="course">
                   <div className="course-preview">
                     <h6>Project</h6>
                     <h2>{report.project_name}</h2>
-                    <a href="#">
+                    <a href="#" id="update-des">
                       <i
                         className="far fa-clock"
                         style={{ color: "white" }}
@@ -185,8 +184,14 @@ const SATeamReport = () => {
                         {report.stage_status}
                       </span>
                     </div>
-                    <h6>Stage</h6>
+                    <h6 className="para">Stage</h6>
                     <h2>{report.stage}</h2>
+
+                    <h6 className="update-desc">Update Description</h6>
+                    <p>
+                      {report.update_description}
+                    </p>
+
                     <button
                       className="btn tick"
                       onClick={() => deleteReport(report.project_name)}
@@ -216,7 +221,10 @@ const SATeamReport = () => {
           ))}
         {!teamReport.length && (
           <h1
-            style={{ borderBottom: "2px solid blueviolet",textAlign: "center" }}
+            style={{
+              borderBottom: "2px solid blueviolet",
+              textAlign: "center",
+            }}
             data-aos="zoom-in"
             data-aos-duration="800"
           >

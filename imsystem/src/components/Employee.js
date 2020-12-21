@@ -9,6 +9,7 @@ function Employee() {
 
   const history = useHistory();
   const [name, setName] = useState("");
+  const [employeeId, setEmployeeId] = useState("");
   const [username, setUserName] = useState("");
   const [status, setStatus] = useState();
   const [pass, setPass] = useState("");
@@ -46,6 +47,7 @@ function Employee() {
       reader.addEventListener("load", async () => {
         await axios
           .post("http://localhost/IMS/API/Employee_insert.php", {
+            employeeid: employeeId,
             name: name,
             username: username,
             status: status,
@@ -102,6 +104,16 @@ function Employee() {
                 className="form-control"
                 value={status}
                 onChange={(e) => setPass(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label">Employee ID</label>
+              <input
+                type="number"
+                name="employee-id"
+                className="form-control"
+                // value={status}
+                onChange={(e) => setEmployeeId(e.target.value)}
               />
             </div>
             <div className="form-group">

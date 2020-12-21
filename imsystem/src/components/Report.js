@@ -36,7 +36,11 @@ function Report() {
   return (
     <div className="report" style={{ marginTop: "55px" }}>
       <h2
-        style={{ color: "#fff", borderBottom: "2px solid blueviolet",textAlign: "center" }}
+        style={{
+          color: "#fff",
+          borderBottom: "2px solid blueviolet",
+          textAlign: "center",
+        }}
         data-aos="fade-down"
         data-aos-duration="800"
       >
@@ -61,7 +65,7 @@ function Report() {
             key={Team_id}
             className="team-imgs"
             data-aos="zoom-in"
-            data-aos-duration={index+=400}
+            data-aos-duration={(index > 1200) ? 800 : (index += 200)}
           >
             <Link
               to={`/superadmin/progressReport/${Team_name}`}

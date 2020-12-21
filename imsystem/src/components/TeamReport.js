@@ -61,16 +61,13 @@ const TeamReport = () => {
       if (progressBarElement[i].classList.contains("Notstarted")) {
         getRuleWithSelector(".Notstarted::after").style.width = "0";
       } else if (progressBarElement[i].classList.contains("Initiated")) {
-        getRuleWithSelector(".Initiated::after").style.width = "calc(100% / 6)";
+        getRuleWithSelector(".Initiated::after").style.width = "25%";
       } else if (progressBarElement[i].classList.contains("Inprogress")) {
-        getRuleWithSelector(".Inprogress::after").style.width =
-          "calc(100% / 3)";
+        getRuleWithSelector(".Inprogress::after").style.width = "50%";
       } else if (progressBarElement[i].classList.contains("Onhold")) {
-        getRuleWithSelector(".Onhold::after").style.width = "50%";
+        getRuleWithSelector(".Onhold::after").style.width = "75%";
       } else if (progressBarElement[i].classList.contains("Complete")) {
-        getRuleWithSelector(".Complete::after").style.width = "calc(200% / 3)";
-      } else {
-        getRuleWithSelector(".Deployed::after").style.width = "100%";
+        getRuleWithSelector(".Complete::after").style.width = "100%";
       }
     }
   };
@@ -94,7 +91,7 @@ const TeamReport = () => {
       }}
     >
       <h2
-        style={{ borderBottom: "2px solid blueviolet",textAlign: "center" }}
+        style={{ borderBottom: "2px solid blueviolet", textAlign: "center" }}
         data-aos="fade-down"
         data-aos-duration="800"
       >
@@ -136,13 +133,13 @@ const TeamReport = () => {
               <div
                 className="courses-container"
                 data-aos="fade-right"
-                data-aos-duration={(index += 400)}
+                data-aos-duration={index > 400 ? 800 : (index += 200)}
               >
                 <div className="course">
                   <div className="course-preview">
                     <h6>Project</h6>
                     <h2>{report.project_name}</h2>
-                    <a href="#">
+                    <a href="#" id="update-des">
                       <i
                         className="far fa-clock"
                         style={{ color: "white" }}
@@ -166,8 +163,14 @@ const TeamReport = () => {
                         {report.stage_status}
                       </span>
                     </div>
-                    <h6>Stage</h6>
+                    <h6 id="para">Stage</h6>
                     <h2>{report.stage}</h2>
+
+                    <h6 className="update-desc">Update Description</h6>
+                    <p >
+                      {report.update_description}
+                    </p>
+                    {/* <h2>{report.update_description}</h2> */}
                   </div>
                 </div>
               </div>

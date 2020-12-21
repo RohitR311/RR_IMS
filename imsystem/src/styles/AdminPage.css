@@ -225,13 +225,14 @@ body {
   /* text-decoration: 1px slateblue; */
   color: blueviolet;
   margin-top: 35px;
+  font-size: 20px !important;
 }
 
 
 .admin .sidebar__inner .profile_info .profile_data .user-name,.user-id {
   font-weight: 300;
   color: #FFE5B4;
-  font-size: 20px !important;
+  /* font-size: 20px !important; */
 }
 
 /* .admin .sidebar__inner .profile_info .profile_data .user-id {

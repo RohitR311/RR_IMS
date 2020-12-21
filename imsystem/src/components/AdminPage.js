@@ -102,10 +102,10 @@ function AdminPage() {
               <h3 className="name">{imsuser.name}</h3>
               <h4 className="role">{imsuser.status}</h4>
 
-              <h4 className="other-details">User-Name:</h4>
-              <p className="user-name">{imsuser.username}</p>
-              <h4 className="other-details">User-ID:</h4>
-              <p className="user-id">{imsuser.userid}</p>
+              <p className="other-details">User-Name:</p>
+              <h4 className="user-name">{imsuser.username}</h4>
+              <p className="other-details">Employee ID:</p>
+              <h4 className="user-id">{imsuser.employeeid}</h4>
               <button
                 className="submit profile"
                 type="submit"
@@ -201,28 +201,28 @@ function AdminPage() {
           <p className="des">Add Employee</p>
         </div>
 
-        <div className="admin-imgs" data-aos="zoom-in" data-aos-duration="600">
+        <div className="admin-imgs" data-aos="zoom-in" data-aos-duration="400">
           <Link to="/superadmin/addTeam" className="hover">
             <img src="/images/Team.svg" alt="" className="admins" />
           </Link>
           <p className="des">Add Team</p>
         </div>
 
-        <div className="admin-imgs" data-aos="zoom-in" data-aos-duration="1000">
+        <div className="admin-imgs" data-aos="zoom-in" data-aos-duration="600">
           <Link to="/superadmin/addMember" className="hover">
             <img src="/images/Member.svg" alt="" className="admins" />
           </Link>
           <p className="des">Edit Member</p>
         </div>
 
-        <div className="admin-imgs" data-aos="zoom-in" data-aos-duration="1400">
+        <div className="admin-imgs" data-aos="zoom-in" data-aos-duration="800">
           <Link to="/superadmin/assignProject" className="hover">
             <img src="/images/Project.svg" alt="" className="admins" />
           </Link>
           <p className="des">Assign Project</p>
         </div>
 
-        <div className="admin-imgs" data-aos="zoom-in" data-aos-duration="1800">
+        <div className="admin-imgs" data-aos="zoom-in" data-aos-duration="1000">
           <Link to="/superadmin/progressReport" className="hover">
             <img src="/images/Report.svg" alt="" className="admins" />
           </Link>
