@@ -37,21 +37,23 @@ const ReportP = () => {
 
   const handleFormSubmit = async (name) => {
     //  e.preventDefault();
-    const res = await axios.post(
-      `http://localhost/IMS/API/Project_Report_Insert.php`,
-      {
-        team: team,
-        project_name: name,
-        project_stage: stage,
-        stage_status: statusStage,
-        update_date: Date.now(),
-        update_description: stageDescription,
-      }
-    );
+    if (window.confirm("Are you sure?")) {
+      const res = await axios.post(
+        `http://localhost/IMS/API/Project_Report_Insert.php`,
+        {
+          team: team,
+          project_name: name,
+          project_stage: stage,
+          stage_status: statusStage,
+          update_date: Date.now(),
+          update_description: stageDescription,
+        }
+      );
 
-    // history.push(`/admin/${team}`);
+      // history.push(`/admin/${team}`);
 
-    console.log(Date.now());
+      console.log(Date.now());
+    }
   };
 
   useEffect(() => {

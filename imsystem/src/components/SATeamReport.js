@@ -188,7 +188,8 @@ const SATeamReport = () => {
                     <h2>{report.stage}</h2>
 
                     <h6 className="update-desc">Update Description</h6>
-                    <p>
+                    <p className="update-para">
+                      
                       {report.update_description}
                     </p>
 

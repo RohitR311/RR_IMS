@@ -178,12 +178,20 @@ body {
   color: #5ad67d;
 }
 
+/* .update-para {
+  width: 200px;
+} */
+
 @media screen and (max-width: 768px) {
   .course {
     display: flex !important;
     flex-direction: column;
     width: 280px;
   }
+
+  /* #update-para {
+    width: -20px !important;
+  } */
 
   .progress-container {
     display: flex !important;
@@ -195,7 +203,7 @@ body {
    /* top: 10%; */
    right: -80%;
    top: -25%;
-   margin-bottom: -50px;
+   margin-bottom: -30px;
   }
 }
 

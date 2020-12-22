@@ -154,6 +154,7 @@ function Project() {
                 className="form-control-file"
                 id="chooseImg"
                 accept="image"
+                name="image"
                 // multiple
                 // data-show-upload="true"
                 // data-show-caption="true"
