@@ -71,7 +71,6 @@ function Member() {
 
   return (
     <div className="member">
-      
       <form className="row login_form" onSubmit={handleFormSubmit}>
         <div id="login-page" className="container open">
           <h1 style={{ marginBottom: "-10px" }}>Edit Member</h1>

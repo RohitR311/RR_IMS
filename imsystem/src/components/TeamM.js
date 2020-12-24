@@ -55,7 +55,7 @@ const TeamM = () => {
       }}
     >
       <h2
-        style={{ borderBottom: "2px solid blueviolet",textAlign: "center" }}
+        style={{ borderBottom: "2px solid blueviolet", textAlign: "center" }}
         data-aos="fade-down"
         data-aos-duration="800"
       >
@@ -81,7 +81,7 @@ const TeamM = () => {
               <div
                 className={`blog-card ${alt} ? ${setAlt()} : ""`}
                 data-aos={`${alt ? "fade-left" : "fade-right"}`}
-                data-aos-duration={(index > 400) ? 800 : (index += 200)}
+                data-aos-duration={index > 400 ? 800 : (index += 200)}
               >
                 <div className="meta">
                   <div

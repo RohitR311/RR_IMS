@@ -71,6 +71,11 @@ body .container {
   margin: 35px 50px;
 }
 
+.daily-task {
+  position: relative;
+  margin: -100px 0;
+}
+
 .profile {
   position: relative;
   right:35%;

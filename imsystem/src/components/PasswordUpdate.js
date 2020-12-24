@@ -45,7 +45,7 @@ function PasswordUpdate(props) {
         className="b_modal"
       >
         <Modal.Header closeButton>
-          <Modal.Title className="modal-title">Update Password!</Modal.Title>
+          <Modal.Title className="modal-title"><i class="fas fa-unlock-alt"></i> Update Password!</Modal.Title>
         </Modal.Header>
         <form onSubmit={handleFormSubmit}>
           <Modal.Body>

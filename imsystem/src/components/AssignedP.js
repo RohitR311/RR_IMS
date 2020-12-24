@@ -51,7 +51,7 @@ const AssignedP = () => {
       }}
     >
       <h2
-        style={{ borderBottom: "2px solid blueviolet",textAlign: "center" }}
+        style={{ borderBottom: "2px solid blueviolet", textAlign: "center" }}
         data-aos="fade-down"
         data-aos-duration="800"
       >
@@ -84,7 +84,7 @@ const AssignedP = () => {
                 }}
                 key={project.Project_id}
                 data-aos="zoom-in"
-                data-aos-duration={(index > 400) ? 800 : (index += 200)}
+                data-aos-duration={index > 400 ? 800 : (index += 200)}
               >
                 <Card.Img
                   src={project.Project_image}

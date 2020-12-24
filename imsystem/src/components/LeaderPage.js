@@ -5,6 +5,7 @@ import axios from "axios";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { useHistory } from "react-router-dom";
+import DailyTaskModal from "./DailyTaskModal";
 import PasswordUpdate from "./PasswordUpdate";
 
 const LeaderPage = () => {
@@ -13,6 +14,7 @@ const LeaderPage = () => {
   const { team } = useParams();
   const [teamImage, setTeamImage] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [isTaskOpen, setIsTaskOpen] = useState(false);
   const [imsuser, setImsUser] = useState("");
 
   const fetchUser = async () => {
@@ -37,6 +39,14 @@ const LeaderPage = () => {
 
   const hideModal = () => {
     setIsOpen(false);
+  };
+
+  const showTaskModal = () => {
+    setIsTaskOpen(true);
+  };
+
+  const hideTaskModal = () => {
+    setIsTaskOpen(false);
   };
 
   const directToHome = () => {
@@ -71,6 +81,11 @@ const LeaderPage = () => {
       }}
     >
       <PasswordUpdate checkOpen={isOpen} hideModal={hideModal} />
+      <DailyTaskModal
+        checkTaskOpen={isTaskOpen}
+        userinfo={imsuser}
+        hideTaskModal={hideTaskModal}
+      />
       <div className="sidebar">
         <div className="bg_shadow"></div>
         <div className="sidebar__inner">
@@ -122,48 +137,6 @@ const LeaderPage = () => {
               </button>
             </div>
           </div>
-          {/* <ul class="siderbar_menu">
-            <li>
-              <a href="#">
-                <div class="icon">
-                  <i class="fas fa-laptop"></i>
-                </div>
-                <div class="title">Dashboard</div>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="active">
-                <div class="icon">
-                  <i class="fas fa-newspaper"></i>
-                </div>
-                <div class="title">Jobs</div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <div class="icon">
-                  <i class="fas fa-file-alt"></i>
-                </div>
-                <div class="title">Documents</div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <div class="icon">
-                  <i class="fas fa-cog"></i>
-                </div>
-                <div class="title">Settings</div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <div class="icon">
-                  <i class="fas fa-question-circle"></i>
-                </div>
-                <div class="title">Help</div>
-              </a>
-            </li>
-          </ul> */}
         </div>
       </div>
       <button
@@ -191,6 +164,16 @@ const LeaderPage = () => {
         Team {team} panel!
       </p>
       <button
+        className="submit daily-task"
+        type="submit"
+        align="right"
+        data-aos="zoom-out"
+        data-aos-duration="800"
+        onClick={showTaskModal}
+      >
+        Check Out Daily Task!
+      </button>
+      <button
         className="submit logout"
         type="submit"
         align="right"
@@ -198,7 +181,8 @@ const LeaderPage = () => {
         data-aos-duration="800"
         onClick={directToHome}
       >
-        Log out
+        <i className="fas fa-sign-out-alt" style={{ color: "white" }}></i> Log
+        out
       </button>
 
       <div className="leader-img">

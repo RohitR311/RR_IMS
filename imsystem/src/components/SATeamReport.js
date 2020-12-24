@@ -76,8 +76,6 @@ const SATeamReport = () => {
   const progressBarElement = document.querySelectorAll(".progress");
 
   const setProgressBar = () => {
-    console.log(progressBarElement);
-
     for (let i = 0; i < progressBarElement.length; i++) {
       if (progressBarElement[i].classList.contains("Notstarted")) {
         getRuleWithSelector(".Notstarted::after").style.width = "0";
@@ -89,6 +87,8 @@ const SATeamReport = () => {
         getRuleWithSelector(".Onhold::after").style.width = "75%";
       } else if (progressBarElement[i].classList.contains("Complete")) {
         getRuleWithSelector(".Complete::after").style.width = "100%";
+      } else {
+        continue;
       }
     }
   };
@@ -96,6 +96,7 @@ const SATeamReport = () => {
   useEffect(() => {
     fetchReport();
     fetchTeam();
+    setProgressBar();
     Aos.init({ duration: 2000 });
   }, []);
   return (
@@ -188,10 +189,7 @@ const SATeamReport = () => {
                     <h2>{report.stage}</h2>
 
                     <h6 className="update-desc">Update Description</h6>
-                    <p className="update-para">
-                      
-                      {report.update_description}
-                    </p>
+                    <p className="wrapword">{report.update_description}</p>
 
                     <button
                       className="btn tick"

@@ -29,14 +29,11 @@ body {
 .dropdowns {
   width: 60%;
   margin: 20px auto;
-  
 }
 
 .dropdowns textarea::placeholder {
   color: #495057;
 }
-
-
 
 .team-report > p {
   margin-top: 5px;
@@ -59,7 +56,7 @@ body {
   max-width: 100%;
   margin: 20px;
   overflow: hidden;
-  width: 700px;
+  width: 800px;
   min-height: 225px;
 }
 
@@ -109,7 +106,7 @@ body {
 .course-info {
   padding: 30px;
   position: relative;
-  width: 100%;
+  width: 520px;
 }
 
 .progress-container {
@@ -139,16 +136,26 @@ body {
 }
 
 .Notstarted::after {
+  background-color: #a06bf5;
+  width: 0;
 }
 
 .Initiated::after {
+  background-color: #9458f5;
+  width: 0;
 }
 
 .Inprogress::after {
+  background-color: #8644f1;
+  width: 0;
 }
 .Onhold::after {
+  width: 0;
+  background-color: #7324f3;
 }
 .Complete::after {
+  width: 0;
+  background-color: #6107f1;
 }
 
 .progress-text {
@@ -178,14 +185,33 @@ body {
   color: #5ad67d;
 }
 
-/* .update-para {
-  width: 200px;
-} */
+.wrapword {
+  /* margin: 0 !important; */
+  /* display: inline-block;
+  width: 55%; */
+  /* overflow-wrap: break-word !important;
+  word-break: break-all; */
+
+  /* word-wrap: break-word !important; 
+  width: 100px; */
+
+  white-space: -webkit-pre-wrap; /* Newer versions of Chrome/Safari*/
+  word-break: break-all;
+  white-space: normal;
+}
+
+.para {
+  color: black !important ;
+}
 
 @media screen and (max-width: 768px) {
   .course {
     display: flex !important;
     flex-direction: column;
+    width: 280px;
+  }
+
+  .course-info {
     width: 280px;
   }
 
@@ -199,11 +225,11 @@ body {
   }
 
   .tick {
-   position: relative;
-   /* top: 10%; */
-   right: -80%;
-   top: -25%;
-   margin-bottom: -30px;
+    position: relative;
+    /* top: 10%; */
+    right: -80%;
+    top: -25%;
+    margin-bottom: -30px;
   }
 }
 

@@ -8,7 +8,6 @@ import { useHistory } from "react-router-dom";
 import $ from "jquery";
 import Script from "../js/script";
 
-
 function Home() {
   Script($);
 
@@ -28,7 +27,7 @@ function Home() {
     //   user: name,
     // });
 
-    localStorage.setItem('user', name);
+    localStorage.setItem("user", name);
 
     const res = await axios.get(
       `http://localhost/IMS/API/Employee_fetch.php?name=${name}&password=${pass}`

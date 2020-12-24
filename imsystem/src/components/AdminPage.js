@@ -118,48 +118,6 @@ function AdminPage() {
               </button>
             </div>
           </div>
-          {/* <ul class="siderbar_menu">
-            <li>
-              <a href="#">
-                <div class="icon">
-                  <i class="fas fa-laptop"></i>
-                </div>
-                <div class="title">Dashboard</div>
-              </a>
-            </li>
-            <li>
-              <a href="#" class="active">
-                <div class="icon">
-                  <i class="fas fa-newspaper"></i>
-                </div>
-                <div class="title">Jobs</div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <div class="icon">
-                  <i class="fas fa-file-alt"></i>
-                </div>
-                <div class="title">Documents</div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <div class="icon">
-                  <i class="fas fa-cog"></i>
-                </div>
-                <div class="title">Settings</div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <div class="icon">
-                  <i class="fas fa-question-circle"></i>
-                </div>
-                <div class="title">Help</div>
-              </a>
-            </li>
-          </ul> */}
         </div>
       </div>
       <button
@@ -182,6 +140,16 @@ function AdminPage() {
       <p data-aos="fade-up" data-aos-duration="800">
         Welcome to super-admin panel!
       </p>
+      {/* <button
+        className="submit daily-task"
+        type="submit"
+        align="right"
+        data-aos="zoom-out"
+        data-aos-duration="800"
+        // onClick={directToHome}
+      >
+        Check Out Daily Task!
+      </button> */}
       <button
         className="submit logout"
         type="submit"
@@ -223,6 +191,13 @@ function AdminPage() {
         </div>
 
         <div className="admin-imgs" data-aos="zoom-in" data-aos-duration="1000">
+          <Link to="/superadmin/dailyTask" className="hover">
+            <img src="/images/Task.svg" alt="" className="admins" />
+          </Link>
+          <p className="des">Assign Daily Task</p>
+        </div>
+
+        <div className="admin-imgs" data-aos="zoom-in" data-aos-duration="1200">
           <Link to="/superadmin/progressReport" className="hover">
             <img src="/images/Report.svg" alt="" className="admins" />
           </Link>

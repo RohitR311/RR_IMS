@@ -29,7 +29,7 @@ body {
 .leader > p {
   margin-top: 5px;
   font-size: 1.2rem;
-  margin-bottom: 50px;
+  margin-bottom: -10px;
   background: -webkit-linear-gradient(
     20deg,
     rgb(107, 80, 226),

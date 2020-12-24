@@ -68,6 +68,8 @@ const TeamReport = () => {
         getRuleWithSelector(".Onhold::after").style.width = "75%";
       } else if (progressBarElement[i].classList.contains("Complete")) {
         getRuleWithSelector(".Complete::after").style.width = "100%";
+      } else {
+        continue;
       }
     }
   };
@@ -75,6 +77,7 @@ const TeamReport = () => {
   useEffect(() => {
     fetchReport();
     fetchTeam();
+    setProgressBar();
     Aos.init({ duration: 2000 });
   }, []);
   return (
@@ -163,13 +166,11 @@ const TeamReport = () => {
                         {report.stage_status}
                       </span>
                     </div>
-                    <h6 id="para">Stage</h6>
+                    <h6 className="para">Stage</h6>
                     <h2>{report.stage}</h2>
 
                     <h6 className="update-desc">Update Description</h6>
-                    <p >
-                      {report.update_description}
-                    </p>
+                    <p className="wrapword">{report.update_description}</p>
                     {/* <h2>{report.update_description}</h2> */}
                   </div>
                 </div>

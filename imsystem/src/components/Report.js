@@ -65,7 +65,7 @@ function Report() {
             key={Team_id}
             className="team-imgs"
             data-aos="zoom-in"
-            data-aos-duration={(index > 1200) ? 800 : (index += 200)}
+            data-aos-duration={index > 1200 ? 800 : (index += 200)}
           >
             <Link
               to={`/superadmin/progressReport/${Team_name}`}

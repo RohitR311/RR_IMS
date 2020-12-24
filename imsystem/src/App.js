@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AdminPage from "./components/AdminPage";
 import AssignedP from "./components/AssignedP";
+import DailyTask from "./components/DailyTask";
 import Employee from "./components/Employee";
 import EmployeePage from "./components/EmployeePage";
 import Home from "./components/Home";
@@ -38,12 +39,16 @@ function App() {
           <Route path="/superadmin/assignProject" exact>
             <Project />
           </Route>
+          <Route path="/superadmin/dailyTask" exact>
+            <DailyTask />
+          </Route>
           <Route path="/superadmin/progressReport" exact>
             <Report />
           </Route>
           <Route path="/superadmin/progressReport/:team" exact>
             <SATeamReport />
           </Route>
+          
           
           <Route path="/employee/:team" exact>
             <EmployeePage />
