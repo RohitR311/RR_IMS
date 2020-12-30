@@ -198,6 +198,8 @@ body {
   white-space: -webkit-pre-wrap; /* Newer versions of Chrome/Safari*/
   word-break: break-all;
   white-space: normal;
+  /* hyphens: manual;
+  -webkit-hyphens: auto; */
 }
 
 .para {

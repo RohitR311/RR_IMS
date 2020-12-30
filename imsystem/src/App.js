@@ -12,6 +12,7 @@ import Project from "./components/Project";
 import Report from "./components/Report";
 import ReportP from "./components/ReportP";
 import SATeamReport from "./components/SATeamReport";
+import TaskReport from "./components/TaskReport";
 import Team from "./components/Team";
 import TeamM from "./components/TeamM";
 import TeamReport from "./components/TeamReport";
@@ -44,6 +45,9 @@ function App() {
           </Route>
           <Route path="/superadmin/progressReport" exact>
             <Report />
+          </Route>
+          <Route path="/superadmin/taskReport" exact>
+            <TaskReport />
           </Route>
           <Route path="/superadmin/progressReport/:team" exact>
             <SATeamReport />

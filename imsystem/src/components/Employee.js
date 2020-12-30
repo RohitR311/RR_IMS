@@ -10,6 +10,7 @@ function Employee() {
   const history = useHistory();
   const [name, setName] = useState("");
   const [employeeId, setEmployeeId] = useState("");
+  const [jobRole, setJobRole] = useState("");
   const [username, setUserName] = useState("");
   const [status, setStatus] = useState();
   const [pass, setPass] = useState("");
@@ -48,6 +49,7 @@ function Employee() {
         await axios
           .post("http://localhost/IMS/API/Employee_insert.php", {
             employeeid: employeeId,
+            jobrole: jobRole,
             name: name,
             username: username,
             status: status,
@@ -115,6 +117,26 @@ function Employee() {
                 onChange={(e) => setEmployeeId(e.target.value)}
               />
             </div>
+            <div className="form-group">
+              <label htmlFor="exampleFormControlTextarea2">
+                Job Role
+              </label>
+              <textarea
+                className="form-control rounded-0"
+                id="exampleFormControlTextarea2"
+                rows="10"
+                onChange={(e) => setJobRole(e.target.value)}
+              ></textarea>
+            </div>
+            {/* <div className="form-group">
+              <label className="form-label">Job Role</label>
+              <input
+                type="text"
+                name="job-role"
+                className="form-control"
+                onChange={(e) => setJobRole(e.target.value)}
+              />
+            </div> */}
             <div className="form-group">
               <label for="chooseImg">Insert Employee Image</label>
               <input

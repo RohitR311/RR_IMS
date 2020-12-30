@@ -11,6 +11,7 @@ function Member() {
 
   const [name, setName] = useState("");
   const [team, setTeam] = useState();
+  const [jobRole, setJobRole] = useState("");
   const [status, setStatus] = useState();
   const [teamArray, setTeamArray] = useState([]);
   const [memberArray, setMemberArray] = useState([]);
@@ -38,7 +39,7 @@ function Member() {
     }
   });
 
-  console.log(teamArray);
+  // console.log(teamArray);
 
   const fetchMember = async () => {
     const response = await axios.get(
@@ -48,7 +49,7 @@ function Member() {
     setMemberArray(response.data);
   };
 
-  console.log(memberArray);
+  // console.log(memberArray);
 
   useEffect(() => {
     fetchTeam();
@@ -61,6 +62,7 @@ function Member() {
       name: name,
       team: team,
       status: status,
+      jobrole: jobRole,
     });
 
     history.push("/superadmin");
@@ -111,6 +113,17 @@ function Member() {
                   </option>
                 ))}
               </select>
+            </div>
+            <div className="form-group">
+              <label htmlFor="exampleFormControlTextarea2">
+                Job Role
+              </label>
+              <textarea
+                className="form-control rounded-0"
+                id="exampleFormControlTextarea2"
+                rows="10"
+                onChange={(e) => setJobRole(e.target.value)}
+              ></textarea>
             </div>
             <button className="submit" type="submit" align="center">
               Edit Member

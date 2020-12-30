@@ -203,7 +203,7 @@ body {
 .leader .sidebar__inner .profile_info .profile_data .role {
   font-weight: 300;
   color: blueviolet;
-  margin-bottom: 35px;
+  margin-bottom: 25px;
 }
 
 /* .leader .sidebar__inner .profile_info .profile_data .skills {
@@ -228,7 +228,7 @@ body {
   font-weight: 300;
   /* text-decoration: underline; */
   color: blueviolet;
-  margin-top: 35px;
+  margin-top: 30px;
   font-size: 20px !important;
 }
 

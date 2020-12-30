@@ -41,8 +41,8 @@ function AdminPage() {
     // console.log(response.data[0].Team_image);
   };
 
-  console.log(imsuser);
-  console.log(teamImage);
+  // console.log(imsuser);
+  // console.log(teamImage);
 
   const openSideBar = () => {
     document.querySelector(".admin").classList.add("active");
@@ -90,7 +90,7 @@ function AdminPage() {
           <div className="close">
             <i
               className="fas fa-times"
-              style={{ color: "white" }}
+              style={{ color: "white", margin: "5px 10px 0 0" }}
               onClick={closeSideBar}
             ></i>
           </div>
@@ -102,16 +102,19 @@ function AdminPage() {
               <h3 className="name">{imsuser.name}</h3>
               <h4 className="role">{imsuser.status}</h4>
 
+              
               <p className="other-details">User-Name:</p>
               <h4 className="user-name">{imsuser.username}</h4>
               <p className="other-details">Employee ID:</p>
               <h4 className="user-id">{imsuser.employeeid}</h4>
+              <p className="other-details">Job-Role:</p>
+              <h6 className="user-name wrapword">{imsuser.jobrole}</h6>
               <button
                 className="submit profile"
                 type="submit"
                 align="center"
-                data-aos="fade-right"
-                data-aos-duration="800"
+                // data-aos="fade-right"
+                // data-aos-duration="800"
                 onClick={showModal}
               >
                 Update Profile
@@ -158,7 +161,8 @@ function AdminPage() {
         data-aos-duration="800"
         onClick={directToHome}
       >
-        Log out
+        <i className="fas fa-sign-out-alt" style={{ color: "white" }}></i> Log
+        out
       </button>
 
       <div className="admin-img">
@@ -202,6 +206,13 @@ function AdminPage() {
             <img src="/images/Report.svg" alt="" className="admins" />
           </Link>
           <p className="des">View Progress Report</p>
+        </div>
+
+        <div className="admin-imgs" data-aos="zoom-in" data-aos-duration="800">
+          <Link to="/superadmin/taskReport" className="hover">
+            <img src="/images/taskReport.svg" alt="" className="admins" />
+          </Link>
+          <p className="des">View Task Report</p>
         </div>
       </div>
     </div>

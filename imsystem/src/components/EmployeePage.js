@@ -16,6 +16,16 @@ const EmployeePage = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isTaskOpen, setIsTaskOpen] = useState(false);
   const [imsuser, setImsUser] = useState("");
+  const [dailyTask, setDailyTask] = useState([]);
+
+  const fetchTask = async () => {
+    const response = await axios.get(
+      `http://localhost/IMS/API/daily_task_fetch.php?emp_name=${imsuser.name}`
+    );
+
+    setDailyTask(response.data);
+
+  };
 
   const fetchUser = async () => {
     const response = await axios.get(
@@ -67,8 +77,9 @@ const EmployeePage = () => {
   useEffect(() => {
     fetchUser();
     fetchTeam();
+    fetchTask();
     Aos.init({ duration: 2000 });
-  }, []);
+  }, [dailyTask]);
   return (
     <div
       className="employee"
@@ -83,7 +94,7 @@ const EmployeePage = () => {
       <PasswordUpdate checkOpen={isOpen} hideModal={hideModal} />
       <DailyTaskModal
         checkTaskOpen={isTaskOpen}
-        userinfo={imsuser}
+        dailyTask={dailyTask}
         hideTaskModal={hideTaskModal}
       />
       <div className="sidebar">
@@ -92,7 +103,7 @@ const EmployeePage = () => {
           <div className="close">
             <i
               className="fas fa-times"
-              style={{ color: "white" }}
+              style={{ color: "white", margin: "5px 10px 0 0" }}
               onClick={closeSideBar}
             ></i>
           </div>
@@ -108,12 +119,14 @@ const EmployeePage = () => {
               <h4 className="user-name">{imsuser.username}</h4>
               <p className="other-details">Employee ID:</p>
               <h4 className="user-id">{imsuser.employeeid}</h4>
+              <p className="other-details">Job-Role:</p>
+              <h6 className="user-name wrapword">{imsuser.jobrole}</h6>
               <button
                 className="submit profile"
                 type="submit"
                 align="center"
-                data-aos="fade-right"
-                data-aos-duration="800"
+                // data-aos="fade-right"
+                // data-aos-duration="800"
                 onClick={showModal}
               >
                 Update Profile

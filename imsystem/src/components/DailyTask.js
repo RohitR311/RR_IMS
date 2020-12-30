@@ -37,10 +37,13 @@ function DailyTask() {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const res = await axios.post(
-      `http://localhost/IMS/API/DailyTask_insert.php`,
+      `http://localhost/IMS/API/daily_task_insert.php`,
       {
-        name: name,
-        dailytask: dailyTask,
+        emp_name: name,
+        task_of_day: dailyTask,
+        task_date: new Date().toJSON().slice(0, 10).replace(/-/g, "/"),
+        status: 0,
+        task_completion_time: null,
       }
     );
 

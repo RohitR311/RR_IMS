@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@500&family=Ubuntu&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@500&family=Ubuntu&display=swap");
 
 @font-face {
   font-family: "Vibur";
@@ -24,7 +24,8 @@
 }
 body {
   min-height: 1000px;
-  background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5) ), url("https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80");
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -32,7 +33,6 @@ body {
   background-position: center;
 }
 body .container {
-  
   width: 400px;
   min-height: 450px;
   background-color: rgba(255, 255, 255, 0.9);
@@ -51,8 +51,6 @@ body .container {
   /* Opera 12+ */
   animation: page-down 1s;
   /* IE 10+, Fx 29+ */
-
-  
 }
 
 .logout {
@@ -71,6 +69,12 @@ body .container {
   margin: 35px 50px;
 }
 
+.member-btn {
+  position: relative;
+  top: 20%;
+  left: 15%;
+}
+
 .daily-task {
   position: relative;
   margin: -100px 0;
@@ -78,7 +82,7 @@ body .container {
 
 .profile {
   position: relative;
-  right:35%;
+  right: 35%;
   /* left: auto; */
   width: 100%;
   /* text-align: center;
@@ -94,8 +98,12 @@ body .container h1 {
   font-size: 50px;
   text-align: center;
   margin: 25px 0;
-  padding: 10px 25px; 
-  background: -webkit-linear-gradient(20deg,rgb(107, 80, 226), rgb(174, 47, 233));
+  padding: 10px 25px;
+  background: -webkit-linear-gradient(
+    20deg,
+    rgb(107, 80, 226),
+    rgb(174, 47, 233)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -104,8 +112,12 @@ body .container h2 {
   width: 100%;
   text-align: center;
   margin: -10px;
-  
-  background: -webkit-linear-gradient(20deg,rgb(107, 80, 226), rgb(174, 47, 233));
+
+  background: -webkit-linear-gradient(
+    20deg,
+    rgb(107, 80, 226),
+    rgb(174, 47, 233)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -268,6 +280,11 @@ body .container .other-links div:hover {
     right: 0;
   }
 
+  .member-btn {
+    position: relative;
+    right: 10%;
+  }
+
   .user {
     position: relative;
     top: 0;
@@ -364,7 +381,7 @@ font-family: 'Ubuntu', sans-serif;
   padding: 15px 40px 15px 40px;
   margin: 35px 50px;
   font-family: "Ubuntu", sans-serif;
- 
+
   /* margin-left: 35%; */
   font-size: 13px;
   box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);

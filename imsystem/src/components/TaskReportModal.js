@@ -4,20 +4,21 @@ import "../styles/PasswordUpdate.css";
 import Modal from "react-bootstrap/Modal";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useHistory } from "react-router-dom";
+import { format } from "timeago.js";
 // import Checkbox from "./Checkbox";
 
-function DailyTaskModal({ dailyTask, checkTaskOpen, hideTaskModal }) {
+function TaskReportModal({ dailyTask, checkTaskOpen, hideTaskModal }) {
   let index = 1;
 
+  const checkTaskStatus = (check, time) => {
+    if (check == 1) return "Completed " + time;
+    else return "Not Completed";
+  };
+
   const submitAsDone = async (task) => {
-    if (window.confirm("Are you sure you have completed your task?!")) {
-      const response = await axios.post(
-        `http://localhost/IMS/API/daily_task_report_insert.php`,
-        {
-          status: 1,
-          task_of_day: task,
-          task_completion_time: Date.now(),
-        }
+    if (window.confirm("Are you sure?!")) {
+      const response = await axios.delete(
+        `http://localhost/IMS/API/daily_task_delete.php?task_of_day=${task}`
       );
 
       hideTaskModal();
@@ -28,6 +29,7 @@ function DailyTaskModal({ dailyTask, checkTaskOpen, hideTaskModal }) {
     <div className="modal">
       <Modal
         show={checkTaskOpen}
+        // size="lg"
         onHide={hideTaskModal}
         backdrop="static"
         keyboard={false}
@@ -58,6 +60,7 @@ function DailyTaskModal({ dailyTask, checkTaskOpen, hideTaskModal }) {
                   </h3>
                   <button
                     className="submit update"
+                    // style={{position: "relative", bottom: "15%"}}
                     onClick={() => submitAsDone(task.task_of_day)}
                   >
                     <i className="far fa-smile" style={{ color: "white" }}></i>{" "}
@@ -72,9 +75,32 @@ function DailyTaskModal({ dailyTask, checkTaskOpen, hideTaskModal }) {
                     onChange={(e) => setChecked(!checked)}
                   /> */}
                 </div>
-                <h5 style={{ color: "blueviolet" }}>Date:</h5>
+                <div
+                  className="time-desc"
+                  style={{ display: "flex", justifyContent: "space-between" }}
+                >
+                  <div className="task-assigned">
+                    <h5 style={{ color: "blueviolet" }}>Date:</h5>
 
-                <p style={{ color: "#5e60ce " }}>{task.task_date}</p>
+                    <p style={{ color: "#5e60ce " }}>{task.task_date}</p>
+                  </div>
+                  <div
+                    className="task-completed"
+                    style={{ marginRight: "155px" }}
+                  >
+                    <h5 style={{ color: "blueviolet" }}>Task Status:</h5>
+
+                    <p style={{ color: "#5e60ce " }}>
+                      {checkTaskStatus(
+                        task.status,
+                        format(task.task_completion_time)
+                      )}
+                    </p>
+                    {/* <h5 style={{ color: "blueviolet" }}>Completed:</h5>
+
+                    <p style={{ color: "#5e60ce " }}>{task.task_date}</p> */}
+                  </div>
+                </div>
 
                 <h5 style={{ color: "blueviolet" }}>Task Assigned:</h5>
 
@@ -82,7 +108,7 @@ function DailyTaskModal({ dailyTask, checkTaskOpen, hideTaskModal }) {
               </div>
             ))}
           {!dailyTask.length && (
-            <h4 style={{ color: "#5e60ce " }}>No projects remaining!</h4>
+            <h4 style={{ color: "#5e60ce " }}>No new tasks assigned!</h4>
           )}
         </Modal.Body>
         {/* <Modal.Footer>
@@ -102,4 +128,4 @@ function DailyTaskModal({ dailyTask, checkTaskOpen, hideTaskModal }) {
   );
 }
 
-export default DailyTaskModal;
+export default TaskReportModal;
