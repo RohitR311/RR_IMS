@@ -24,7 +24,6 @@ const EmployeePage = () => {
     );
 
     setDailyTask(response.data);
-
   };
 
   const fetchUser = async () => {

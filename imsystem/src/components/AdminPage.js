@@ -102,7 +102,6 @@ function AdminPage() {
               <h3 className="name">{imsuser.name}</h3>
               <h4 className="role">{imsuser.status}</h4>
 
-              
               <p className="other-details">User-Name:</p>
               <h4 className="user-name">{imsuser.username}</h4>
               <p className="other-details">Employee ID:</p>

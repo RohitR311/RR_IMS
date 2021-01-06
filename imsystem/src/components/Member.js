@@ -115,9 +115,7 @@ function Member() {
               </select>
             </div>
             <div className="form-group">
-              <label htmlFor="exampleFormControlTextarea2">
-                Job Role
-              </label>
+              <label htmlFor="exampleFormControlTextarea2">Job Role</label>
               <textarea
                 className="form-control rounded-0"
                 id="exampleFormControlTextarea2"

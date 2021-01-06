@@ -24,9 +24,7 @@ const LeaderPage = () => {
     );
 
     setDailyTask(response.data);
-
   };
-  
 
   // console.log(dailyTask);
 
